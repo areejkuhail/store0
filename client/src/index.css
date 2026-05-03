@@ -1,0 +1,20 @@
+:root {
+  --main-blue: #007bff; /* الأزرق اللي بالملف */
+  --dark-bg: #212529;
+  --light-gray: #f8f9fa;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--light-gray);
+}
+
+.card {
+  border-radius: 15px !important;
+  transition: transform 0.5s;
+}
+
+.card:hover {
+  transform: translateY(-60px);
+}

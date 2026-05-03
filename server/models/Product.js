@@ -1,0 +1,22 @@
+const mongoose = require('mongoose');
+
+const reviewSchema = new mongoose.Schema({
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  name: { type: String, required: true },
+  rating: { type: Number, required: true },
+  comment: String,
+}, { timestamps: true });
+
+const productSchema = new mongoose.Schema({
+  name:         { type: String, required: true },
+  price:        { type: Number, required: true },
+  description:  { type: String, default: '' },
+  category:     { type: String, default: '' },
+  image:        { type: String, default: '' },
+  countInStock: { type: Number, default: 0 },
+  rating:       { type: Number, default: 0 },
+  numReviews:   { type: Number, default: 0 },
+  reviews:      [reviewSchema],
+}, { timestamps: true });
+
+module.exports = mongoose.model('Product', productSchema);
