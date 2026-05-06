@@ -46,15 +46,15 @@ const products = [
     rating: 4.6,
     numReviews: 15,
   },
+
 ];
 
-// الاتصال بقاعدة البيانات واضافة المنتجات
 mongoose.connect(process.env.MONGO_URI)
   .then(async () => {
-    // حذف المنتجات القديمة
+  
     await Product.deleteMany();
     
-    // اضافة المنتجات الجديدة
+    
     await Product.insertMany(products);
     
     console.log('تم اضافة المنتجات بنجاح');

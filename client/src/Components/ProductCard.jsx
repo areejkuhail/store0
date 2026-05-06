@@ -1,12 +1,28 @@
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
 import { useWishlist } from "../context/WishlistContext";
+import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ product, showHeart = false }) => {
   const { addToCart } = useCart();
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  const handleAddToCart = () => {
+    if (!user) {
+      navigate('/login'); 
+      return;
+    }
+    addToCart(product);
+  };
 
   const handleWishlist = () => {
+    if (!user) {
+      navigate('/login');
+      return;
+    }
     if (isInWishlist(product._id)) {
       removeFromWishlist(product._id);
     } else {
@@ -37,7 +53,7 @@ const ProductCard = ({ product, showHeart = false }) => {
       <button
         className="btn btn-success w-100 mt-2 rounded-pill py-2 d-flex align-items-center justify-content-center gap-2"
         style={{ backgroundColor: "#78b933", border: "none" }}
-        onClick={() => addToCart(product)}
+        onClick={handleAddToCart}
       >
         <FaShoppingCart /> أضف إلى السلة
       </button>

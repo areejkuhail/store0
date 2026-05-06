@@ -1,7 +1,7 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
-// توليد التوكن
+
 const generateToken = (id, isAdmin) => {
   return jwt.sign({ id, isAdmin }, process.env.JWT_SECRET, { expiresIn: '7d' });
 };
@@ -42,7 +42,7 @@ const loginUser = async (req, res) => {
   });
 };
 
-// جلب بيانات المستخدم الحالي
+
 const getProfile = async (req, res) => {
   const user = await User.findById(req.user.id).select('-password');
   res.json(user);

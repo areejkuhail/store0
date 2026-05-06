@@ -1,6 +1,6 @@
 const Product = require('../models/Product');
 
-// GET /api/products — كل المنتجات مع بحث وpagination
+
 const getProducts = async (req, res) => {
   const page     = Number(req.query.page)    || 1;
   const limit    = Number(req.query.limit)   || 12;
@@ -18,21 +18,20 @@ const getProducts = async (req, res) => {
   res.json({ products, page, pages: Math.ceil(count / limit), total: count });
 };
 
-// GET /api/products/:id — منتج واحد
+
 const getProductById = async (req, res) => {
   const product = await Product.findById(req.params.id);
   if (!product) return res.status(404).json({ message: 'المنتج غير موجود' });
   res.json(product);
 };
 
-// POST /api/products — إضافة منتج (أدمن)
 const createProduct = async (req, res) => {
   const { name, price, description, category, image, countInStock } = req.body;
   const product = await Product.create({ name, price, description, category, image, countInStock });
   res.status(201).json(product);
 };
 
-// PUT /api/products/:id — تعديل منتج (أدمن)
+
 const updateProduct = async (req, res) => {
   const product = await Product.findById(req.params.id);
   if (!product) return res.status(404).json({ message: 'المنتج غير موجود' });
@@ -42,7 +41,7 @@ const updateProduct = async (req, res) => {
   res.json(updated);
 };
 
-// DELETE /api/products/:id — حذف منتج (أدمن)
+
 const deleteProduct = async (req, res) => {
   const product = await Product.findByIdAndDelete(req.params.id);
   if (!product) return res.status(404).json({ message: 'المنتج غير موجود' });
