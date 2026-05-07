@@ -47,6 +47,7 @@ const HomePage = () => {
         </div>
       </div>
 
+    
       {/* مقترحة لك */}
       <div className="container mt-5">
         <h3 className="fw-bold mb-4">مقترحة لك</h3>
