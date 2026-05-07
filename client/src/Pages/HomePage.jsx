@@ -8,7 +8,7 @@ const HomePage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    fetch("https://store0.onrender.com/api/products")
       .then(res => res.json())
       .then(data => { setProducts(data.products); setLoading(false); })
       .catch(err => { console.log(err); setLoading(false); });

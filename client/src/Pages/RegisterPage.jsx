@@ -21,7 +21,7 @@ function RegisterPage() {
     setLoading(true);
     setError('');
     try {
-      const { data } = await axios.post('http://localhost:5000/api/auth/register', {
+      const { data } = await axios.post('https://store0.onrender.com/api/auth/register', {
         name: form.name,
         email: form.email,
         password: form.password,

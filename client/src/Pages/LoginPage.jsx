@@ -18,7 +18,7 @@ function LoginPage() {
     setLoading(true);
     setError('');
     try {
-      const { data } = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      const { data } = await axios.post('https://store0.onrender.com/api/auth/login', { email, password });
       login(data);
       data.isAdmin ? navigate('/admin') : navigate('/');
     } catch (err) {

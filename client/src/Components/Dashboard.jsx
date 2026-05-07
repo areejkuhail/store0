@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-
-const API = 'http://localhost:5000/api/products';
+const API = 'https://store0.onrender.com/api/products';
 
 const emptyForm = {
   name: '',
