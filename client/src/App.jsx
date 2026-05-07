@@ -1,11 +1,11 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage    from "./pages/HomePage";
-import LoginPage   from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
-import Dashboard   from "./components/Dashboard";
-import CartPage from "./pages/CartPage";
-import WishlistPage from "./pages/WishlistPage";
+import HomePage    from "./Pages/HomePage";
+import LoginPage   from "./Pages/LoginPage";
+import RegisterPage from "./Pages/RegisterPage";
+import Dashboard   from "./Components/Dashboard";
+import CartPage from "./Pages/CartPage";
+import WishlistPage from "./Pages/WishlistPage";
 
 function App() {
   return (
